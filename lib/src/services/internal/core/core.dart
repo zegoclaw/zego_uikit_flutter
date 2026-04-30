@@ -961,12 +961,12 @@ class ZegoUIKitCore
       if (ZegoUIKitAudioRoute.headphone ==
           coreData.localUser.audioRoute.value) {
         ZegoLoggerService.logWarn(
-          'Currently using headphone, cannot be set as speaker.',
+          'Currently using headphone, but force switching to speaker because useSpeaker is true.',
           tag: 'uikit-service-core($hashCode)',
           subTag: 'set audio route to speaker:$useSpeaker',
         );
 
-        return false;
+        // Force switch to speaker when useSpeaker=true, ignore headphone state
       }
     }
 
